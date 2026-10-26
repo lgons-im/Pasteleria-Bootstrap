@@ -1,0 +1,470 @@
+:root {
+  --bs-primary-base: #b8325a;
+  --bs-primary-bg: #b8325a;
+  --bs-primary-fg: #8f2145;
+  --bs-primary-bg-subtle: #fbe3e8;
+  --bs-primary-contrast: #ffffff;
+
+  --bs-body-font-family: "Nunito Sans", system-ui, sans-serif;
+
+  --tinta: #3a1626;
+  --tinta-suave: #7a5565;
+  --papel: #fff9fa;
+  --linea: #f0d3da;
+  --masa: #f6c98b;
+  --titulo: "Fraunces", Georgia, serif;
+  --ancho: 1120px;
+}
+
+body {
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+h1,
+h2,
+.marca {
+  font-family: var(--titulo);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--bs-primary-base);
+  outline-offset: 2px;
+}
+
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 249, 250, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--linea);
+}
+
+.barra-interna {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: .75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.marca {
+  font-size: 1.35rem;
+  color: var(--bs-primary-fg);
+  text-decoration: none;
+}
+
+.barra-acciones {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.enlace-barra {
+  color: var(--tinta);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.enlace-barra:hover {
+  color: var(--bs-primary-fg);
+}
+
+#contador {
+  margin-left: .35rem;
+  background: #fff;
+  color: var(--bs-primary-fg);
+  border-radius: 999px;
+  padding: 0 .5rem;
+  font-weight: 800;
+}
+
+.portada {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 4rem 1.25rem 3rem;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+}
+
+.portada h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+
+.portada p {
+  max-width: 46ch;
+  color: var(--tinta-suave);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.boleta {
+  background: #fff;
+  border: 2px dashed var(--bs-primary-base);
+  border-radius: 6px;
+  padding: 1.5rem;
+  transform: rotate(1.2deg);
+  box-shadow: 6px 6px 0 var(--bs-primary-bg-subtle);
+}
+
+.boleta-titulo {
+  font-family: var(--titulo);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 0 0 .75rem !important;
+  color: var(--bs-primary-fg) !important;
+}
+
+.boleta ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.boleta li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .65rem 0;
+  border-top: 1px dotted var(--linea);
+}
+
+.boleta li span {
+  color: var(--tinta-suave);
+}
+
+.seccion {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+.seccion-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.seccion h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.buscador {
+  width: min(100%, 22rem);
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  list-style: none;
+}
+
+.filtros .nav-link {
+  cursor: pointer;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.card-producto {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.foto {
+  height: 130px;
+  display: grid;
+  place-items: center;
+  font-size: 3.4rem;
+  background: var(--masa);
+  position: relative;
+}
+
+.foto[data-cat="Tortas"] {
+  background: #f9d3dc;
+}
+
+.foto[data-cat="Postres"] {
+  background: #fbe9c6;
+}
+
+.foto[data-cat="Galletas"] {
+  background: #f1dcc4;
+}
+
+.foto[data-cat="Salados"] {
+  background: #ecdcc8;
+}
+
+.foto .badge {
+  position: absolute;
+  top: .6rem;
+  left: .6rem;
+}
+
+.card-producto .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: 1rem;
+  flex: 1;
+}
+
+.card-producto h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.card-producto p {
+  color: var(--tinta-suave);
+  font-size: .92rem;
+  margin: 0;
+  flex: 1;
+}
+
+.card-pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: .6rem;
+}
+
+.precio {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.vacio {
+  color: var(--tinta-suave);
+}
+
+.seccion-pedido {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  border-top: 1px solid var(--linea);
+  margin-top: 1.5rem;
+  padding-top: 3rem;
+}
+
+.pedido-intro p {
+  color: var(--tinta-suave);
+  line-height: 1.6;
+  margin-top: 1rem;
+  max-width: 42ch;
+}
+
+.pedido-form {
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.campo-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.campo .form-label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: .3rem;
+}
+
+.pedido-pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.estimado {
+  margin: 0;
+  color: var(--tinta-suave);
+}
+
+.estimado strong {
+  color: var(--bs-primary-fg);
+  font-size: 1.3rem;
+}
+
+.list-group-item .fila {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.fila .emoji {
+  font-size: 1.8rem;
+}
+
+.fila .info {
+  flex: 1;
+  min-width: 0;
+}
+
+.fila .info strong {
+  display: block;
+}
+
+.fila .info small {
+  color: var(--tinta-suave);
+}
+
+.cantidad {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.cantidad button {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  border: 1px solid var(--linea);
+  background: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cantidad button:hover {
+  background: var(--bs-primary-bg-subtle);
+}
+
+.resumen {
+  margin: 1.25rem 0 0;
+}
+
+.resumen div {
+  display: flex;
+  justify-content: space-between;
+  padding: .3rem 0;
+}
+
+.resumen dt,
+.resumen dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.resumen-total {
+  border-top: 1px solid var(--linea);
+  margin-top: .4rem;
+  padding-top: .7rem !important;
+  font-size: 1.2rem;
+}
+
+.resumen-total dt,
+.resumen-total dd {
+  font-weight: 800;
+  color: var(--bs-primary-fg);
+}
+
+.carrito-botones {
+  display: flex;
+  gap: .75rem;
+  margin-top: 1.25rem;
+}
+
+.carrito-botones .btn {
+  flex: 1;
+}
+
+.aviso {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translate(-50%, 140%);
+  background: var(--tinta);
+  color: #fff;
+  padding: .75rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform .25s ease;
+  z-index: 50;
+  max-width: 90vw;
+}
+
+.aviso.visible {
+  transform: translate(-50%, 0);
+}
+
+.pie {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  color: var(--tinta-suave);
+  font-size: .9rem;
+}
+
+@media (max-width: 800px) {
+
+  .portada,
+  .seccion-pedido {
+    grid-template-columns: 1fr;
+  }
+
+  .portada {
+    padding-top: 2.5rem;
+  }
+
+  .boleta {
+    transform: none;
+  }
+
+  .enlace-barra {
+    display: none;
+  }
+
+  .campo-doble {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aviso {
+    transition: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
